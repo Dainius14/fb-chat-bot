@@ -1,0 +1,9 @@
+{
+	"cmd_name": "!saveusers",
+	"cmd_alt_name": "",
+	"info": "",
+	"is_admin": true,
+	"txt_executed": "Users updated.",
+	"txt_format": "",
+	"txt_arg_error": ""
+}

@@ -1,0 +1,9 @@
+{
+	"cmd_name": "!say",
+	"cmd_alt_name": "",
+	"info": "bot repeats what you say",
+	"is_admin": false,
+	"txt_executed": "",
+	"txt_format": "",
+	"txt_arg_error": "Tu gal lengvai trenktas per galvelę? Liepi kažką sakyt ir nesakai ką. Pzd."
+}

@@ -1,0 +1,10 @@
+{
+	"cmd_name": "!wiki",
+	"cmd_alt_name": "",
+	"info": "shows Wikipedia article extract",
+	"is_admin": false,
+	"txt_executed": "{0}. {1}\n---Definition:\n{2}\n---Example:\n{3}\n\n-----------------------\n\n",
+	"txt_format": "",
+	"txt_arg_error": "Nieko nenurodei ką tikrinti.",
+	"txt_error": "Nerandu nieko :/"
+}

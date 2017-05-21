@@ -1,0 +1,9 @@
+{
+	"cmd_name": "!roll",
+	"cmd_alt_name": "",
+	"info": "rolls a number with a given value [0, n]",
+	"is_admin": false,
+	"txt_executed": "",
+	"txt_format": "",
+	"txt_arg_error": "Nedavei skaičiuko"
+}

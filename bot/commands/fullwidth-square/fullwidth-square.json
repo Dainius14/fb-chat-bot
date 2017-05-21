@@ -1,0 +1,10 @@
+{
+	"cmd_name": "!aestheticsquare",
+	"cmd_alt_name": "",
+	"info": "converts text to aesthetic (full-width) text in a square shape for extra aesthetic",
+	"is_admin": false,
+	"txt_executed": "",
+	"txt_format": "",
+	"txt_arg_error": "Nieko nenurodei ką daryti.",
+	"txt_error": ""
+}

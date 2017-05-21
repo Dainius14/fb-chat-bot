@@ -1,0 +1,17 @@
+{
+	"cmd_name": "!kasdx",
+	"cmd_alt_name": "",
+	"info": "determines who is dx in this chat",
+	"is_admin": false,
+	"txt_executed": "",
+	"txt_format": "",
+	"txt_arg_error": "",
+	"rolls": {
+		"Dainius yra dūchas": 1,
+		"Aš esu dūchas": 1,
+		"Nė vienas nėra dūchas": 1,
+		"Augustas yra dūchas": 1,
+		"Sigitas yra dūchas": 3,
+		"Aurelijus yra dūchas": 2
+	}
+}

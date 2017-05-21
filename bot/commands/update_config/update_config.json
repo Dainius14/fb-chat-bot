@@ -1,0 +1,9 @@
+{
+	"cmd_name": "!updateconfig",
+	"cmd_alt_name": "",
+	"info": "",
+	"is_admin": true,
+	"txt_executed": "Config updated.",
+	"txt_format": "",
+	"txt_arg_error": ""
+}

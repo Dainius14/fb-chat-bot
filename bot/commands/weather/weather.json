@@ -1,0 +1,9 @@
+{
+	"cmd_name": "!weather",
+	"cmd_alt_name": "",
+	"info": "shows weather forecast",
+	"is_admin": false,
+	"txt_executed": "{0} dabar yra {1}°, {2}. Rytoj dieną {3}° ir {4}, naktį {5}° ir {6}.",
+	"txt_format": "",
+	"txt_arg_error": ""
+}

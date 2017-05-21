@@ -1,0 +1,9 @@
+{
+	"cmd_name": "!time",
+	"cmd_alt_name": "",
+	"info": "shows current time and date",
+	"is_admin": false,
+	"txt_executed": "",
+	"txt_format": "%Y-%m-%d %H:%M:%S%n%B %d, %A%n%j diena, %W savaite\n\n",
+	"txt_arg_error": ""
+}

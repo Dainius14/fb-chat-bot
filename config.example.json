@@ -1,0 +1,16 @@
+{
+	"email": "",
+	"password": "",
+	"thread_id": "",
+	"is_thread_group": true,
+	"bot_name": "",
+	"quiz_file": "",
+	"admin_fbid_list": [
+		""
+	],
+	"events": {
+		"on_login": "",
+		"on_command_error": "",
+		"on_command_error_oper": ""
+	}
+}

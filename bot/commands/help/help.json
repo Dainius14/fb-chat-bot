@@ -1,0 +1,9 @@
+{
+	"cmd_name": "!help",
+	"cmd_alt_name": "",
+	"info": "see available commands",
+	"is_admin": false,
+	"txt_executed": "",
+	"txt_format": "",
+	"txt_arg_error": ""
+}
