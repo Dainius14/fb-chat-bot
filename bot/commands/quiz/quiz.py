@@ -221,7 +221,7 @@ class QuizCmd(SuperCommand):
                 timer.args = (timer,)
                 self._timer = timer
                 self._timer.start()
-                self.sendMessage("ayy")
+                self.sendMessage(self._hidden)
             else:
                 timer.cancel()
                 self._timer = None
