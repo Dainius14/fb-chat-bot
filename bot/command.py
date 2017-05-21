@@ -11,7 +11,7 @@ class Command:
         self.sendMessage = None
 
         try:
-            dirpath = "{0}\\commands\\{1}\\".format(os.path.dirname(os.path.realpath(__file__)), self.module_name)
+            dirpath = "{0}/commands/{1}/".format(os.path.dirname(os.path.realpath(__file__)), self.module_name)
 
             with open(dirpath + self.module_name + ".json", encoding="utf-8") as infile:
                 self.config = json.load(infile)

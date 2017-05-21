@@ -41,9 +41,6 @@ class WeatherCmd(Command):
         msg += str_format.format("Kaune", *getData("Kaunas")) + "\n\n"
         msg += str_format.format("Panevėžyje", *getData("Panevezys"))
 
-        # 1746870478673304
-        # 1328526857177201
-
         self.sendMessage(msg)
 
 
