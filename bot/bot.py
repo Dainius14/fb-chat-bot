@@ -1,6 +1,11 @@
+import json
 import os
 import random
 import re
+import shutil
+import threading
+
+import time
 
 from fbchat.client import Client as fbchat
 from fbchat.models import *
@@ -11,7 +16,7 @@ import logging
 
 
 class FbChatBot(fbchat):
-    def __init__(self, config):
+    def __init__(self, config, stats):
         """
         Set up bot.
 
@@ -23,8 +28,9 @@ class FbChatBot(fbchat):
 
         # Setup bot
         self.config = config
+        self.stats = stats
         self.cmsgs = config["messages"]
-        self.commands = []
+        self.commands = {}
         self.loadCommands(False)
 
         # Init fbchat
@@ -36,8 +42,12 @@ class FbChatBot(fbchat):
         self.onListening += lambda: self.sendMessage(self.cmsgs[Msgs.ON_LOGGED_IN])
         self.onMessage += self._onMessage
 
-    def startListening(self):
-        self.listen()
+        # Setup stats
+        self.is_stats_dirty = False
+        self.last_stats_update = time.time()
+        self.stats["times_launched"] += 1
+        self.stats["current_uptime"] = 0
+        self.updateStats()
 
     def _onMessage(self, mid, author_id, message, thread_id, thread_type, ts, metadata):
         """ Routes incoming messages. """
@@ -55,9 +65,6 @@ class FbChatBot(fbchat):
             return
 
         # Message is from my group, do my bot things
-
-        is_command = False
-        # Commands
         if message.startswith("!"):
             parts = message.split(" ", 1)
             command_name = parts[0].lower()
@@ -82,9 +89,11 @@ class FbChatBot(fbchat):
 
         self.responderToText(author_id, message)
 
+        self.commands["quiz"].tryGuess(author_id, message)
+
     def getCommandObj(self, command_name):
         """Returns a dict of given command.py with all related info. None if command.py not found"""
-        for command in self.commands:
+        for command in self.commands.values():
             if command.checkCommand(command_name):
                 return command
 
@@ -115,7 +124,7 @@ class FbChatBot(fbchat):
                 obj.init(self.sendMessage)
 
             if obj.is_loaded:
-                self.commands.append(obj)
+                self.commands[dirname] = obj
 
     def responderToText(self, author_id, message):
         """Checks if there are words matching respondable words in config, then responds."""
@@ -140,7 +149,34 @@ class FbChatBot(fbchat):
 
         self.sendMessage(answer)
 
-    """
-    Core commands for controlling vital stuff
-    """
+    def fbidToName(self, fbid: str) -> str:
+        user = self.config[USERS].get(fbid)
+        if user is None:
+            return None
+        return user["name"]
 
+    def updateStats(self):
+        """Every 10s writes to stats file new updates, if there are any"""
+        threading.Timer(30, self.updateStats).start()
+
+        # Keeps track of uptime
+        diff = time.time() - self.last_stats_update
+        if diff >= 60:
+            self.stats["uptime_minutes"] += 1
+            self.stats["current_uptime"] += 1
+            self.is_stats_dirty = True
+            self.last_stats_update = time.time()
+
+        # Writes only if data is modified
+        if self.is_stats_dirty:
+            shutil.copyfile("../stats.json", "../stats.tmp.json")
+            try:
+                with open("../stats.json", "w", encoding="utf-8") as outfile:
+                    json.dump(self.stats, outfile, indent="\t", ensure_ascii=False)
+            except IOError as e:
+                shutil.copyfile("../stats.tmp.json", "../stats.json")
+
+            self.is_stats_dirty = False
+
+    def markStatsDirty(self):
+        self.is_stats_dirty = True

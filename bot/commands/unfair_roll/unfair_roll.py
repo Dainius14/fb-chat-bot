@@ -10,8 +10,11 @@ class UnfairRollCmd(Command):
         super().__init__()
 
     def execute(self, cmd_name, args, author_id):
-        response = random.choices(list(self.config["rolls"].keys()), list(self.config["rolls"].values()))
-        self.sendMessage(response)
+        unfair_list = []
+        for key, value in self.config["rolls"].items():
+            unfair_list += [key] * int(value)
+        msg = random.choice(unfair_list)
+        self.sendMessage(msg)
 
 
 def getObj():

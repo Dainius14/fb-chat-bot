@@ -4,17 +4,21 @@ import daemon
 
 import bot
 
+context = daemon.DaemonContext(
+    working_directory='/home/pi/fb-chat-bot/bot',
+    )
 
-my_bot = None
+config = None
+stats = None
 try:
     with open("../config.json", encoding="utf-8") as infile:
         config = json.load(infile)
-        my_bot = bot.FbChatBot(config)
+    with open("../stats.json", encoding="utf-8") as infile:
+        stats = json.load(infile)
 except IOError as e:
     logging.exception("Can't open file config.json", e)
     exit(1)
 
-with daemon.DaemonContext():
-    my_bot.startListening()
-
-logging.info("Bot started.")
+my_bot = bot.FbChatBot(config, stats)
+with context:
+    my_bot.listen()

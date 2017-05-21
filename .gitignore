@@ -103,3 +103,6 @@ ENV/
 /.idea
 
 config.json
+config.tmp.json
+stats.json
+stats.tmp.json

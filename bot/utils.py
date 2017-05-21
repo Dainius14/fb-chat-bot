@@ -22,7 +22,8 @@ def unicode_decode(string: str) -> str:
         elif c == 'ž':
             c = 'z'
 
-        if was_upper: c = c.upper()
+        if was_upper:
+            c = c.upper()
         result += c
 
     return result

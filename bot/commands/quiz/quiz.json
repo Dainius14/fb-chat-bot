@@ -1,9 +1,29 @@
 {
-	"cmd_name": "!saveusers",
-	"cmd_alt_name": "",
-	"info": "",
-	"is_admin": true,
+	"cmd_name": "!viktorina",
+	"cmd_alt_name": "!v",
+	"args": {
+		"help": "help",
+		"repeat_question": "klausimas",
+		"get_question": "dar",
+		"user_stats": "mystats",
+		"global_stats": "allstats",
+		"top_3": "top"
+	},
+	"help": "Viktorina! Rašyk Arnoldui '!viktorina dar', jei nori, kad jis tau užduotų klausimą, jei pamiršai rašyk '!viktorina klausimas'. Teisingai atsakius į klausimą bus užduotas kitas klausimas. Taip pat gali naudoti '!v' komandą, kad būtų greičiau. Norėdamas sužinoti savo statistiką rašyk '!v mystats', jei nori pamatyti bendrą statistiką - rašyk '!v allstats'. Geriausi žaidėjai - '!v top' komanda. Rink taškus ir linksmai leisk laiką #trnk kanale :)",
+
+	"info": "play the funny quiz game :^)",
+	"is_admin": false,
 	"txt_executed": "Users updated.",
 	"txt_format": "",
-	"txt_arg_error": ""
+	"txt_arg_error": "",
+	"question_max_at_time": 5,
+	"timeout": 30,
+	"timeout_text": "Teisingas atsakymas buvo: {0}",
+	"guess_wrong": "Neteisingai.",
+	"guess_correct": "Teisingai! {0} gavo {1} taškus.",
+	"top_text": "Geriausi:\n\n",
+	"top_position_text": "{0}. {1} - {2} t.\n",
+	"user_not_played": "Dar nežaidei...",
+	"user_stats_text": "{name} statistika:\n\nTaškai: {points}\nAtsakyti klausimai: {total_answered}, {last_answered}.\nDaugiausia iš eilės atsakė į {combo} klausimus. Oi šaunuoliukas tu :)",
+	"global_stats_text": "Bendra statistika:\n\nIš viso užduota klausimų: {total_questions}\nAtsakyta klausimų: {total_answered}"
 }
