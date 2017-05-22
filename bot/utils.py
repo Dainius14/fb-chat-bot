@@ -27,3 +27,11 @@ def unicode_decode(string: str) -> str:
         result += c
 
     return result
+
+
+def isInt(string: str) -> bool:
+    try:
+        int(string)
+        return True
+    except ValueError:
+        return False

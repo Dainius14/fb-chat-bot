@@ -1,0 +1,10 @@
+{
+	"cmd_name": "!facts",
+	"cmd_alt_name": "",
+	"info": "<number> <category> tells you fact about number in categories trivia, math, date, year.",
+	"is_admin": false,
+	"txt_executed": "",
+	"txt_format": "",
+	"txt_arg_error": "",
+	"types": ["trivia", "math", "date", "year"]
+}

@@ -15,6 +15,8 @@ class HelpCmd(SuperCommand):
             response += "{0}".format(cmd.config[Cmd.NAME])
             response += " ({0})".format(cmd.config[Cmd.ALT_NAME]) if cmd.config[Cmd.ALT_NAME] else ""
             response += " - {0}\n".format(cmd.config[Cmd.INFO])
+
+        response = "\n".join(sorted(response.split("\n")))
         self.sendMessage(response)
 
 
