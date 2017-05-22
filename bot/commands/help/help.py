@@ -9,7 +9,7 @@ class HelpCmd(SuperCommand):
 
     def execute(self, cmd_name, args, author_id):
         response = ""
-        for cmd in self._bot.commands:
+        for cmd in self._bot.commands.values():
             if not cmd.config[Cmd.NAME] or cmd.config[Cmd.IS_ADMIN]:
                 continue
             response += "{0}".format(cmd.config[Cmd.NAME])

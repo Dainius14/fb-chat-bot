@@ -75,7 +75,7 @@ class QuizCmd(SuperCommand):
 
                     msg = self.config["top_text"]
                     for i, user in enumerate(users):
-                        msg += self.config["top_position_text"].format(str(i + 1), user[0], user[1][POINTS])
+                        msg += self.config["top_position_text"].format(str(i + 1), user[0].name, user[1][POINTS])
                     self.sendMessage(msg)
 
                 break
@@ -83,16 +83,10 @@ class QuizCmd(SuperCommand):
         else:
             self.tryGuess(author_id, " ".join(args))
 
-    def doesAcceptAnswers(self):
-        return self._accept_answers
-
     def getQuestion(self):
         if not self._accept_answers:
             return self.getNewQuestion()
         return self._question
-
-    def getAnswer(self):
-        return self._answer
 
     def getUserStats(self, author_id):
         return self._bot.stats[QUIZ][USERS].get(author_id)
